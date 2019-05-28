@@ -8,9 +8,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("views.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("views/mainMenu.fxml"));
+        primaryStage.setTitle("Skin Cancer Classifier");
+        primaryStage.setScene(new Scene(root, 1200, 850));
         primaryStage.show();
     }
 
