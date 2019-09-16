@@ -1,7 +1,4 @@
-package model;
-
-import java.io.File;
-import java.util.ArrayList;
+package UserInterface.model.model;
 
 /**
  *

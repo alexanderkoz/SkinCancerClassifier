@@ -1,11 +1,10 @@
-package controller;
+package UserInterface.model.controller;
 
-import com.sun.xml.internal.bind.v2.TODO;
+import UserInterface.model.model.GuiUtil;
+import UserInterface.model.model.UploadFile;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
-import model.*;
 
 import java.io.File;
 

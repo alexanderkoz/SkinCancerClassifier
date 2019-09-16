@@ -1,4 +1,4 @@
-package controller;
+package UserInterface.model.controller;
 
 
 import javafx.fxml.FXML;
