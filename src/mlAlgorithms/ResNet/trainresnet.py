@@ -38,9 +38,6 @@ valid_generator = datagen.flow_from_dataframe(
    batch_size = 32
 )
 
-print(train_generator.class_indices)
-
-'''
 input_tensor = Input(shape=(dim_size, dim_size, 3))
 model = ResNet152V2(input_tensor=input_tensor, weights=None, classes=7)
 
@@ -63,4 +60,3 @@ model.fit_generator(generator=train_generator,
                     epochs=35)
 
 model.save_weights(weights)
-'''

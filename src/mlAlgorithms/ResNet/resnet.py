@@ -15,7 +15,7 @@ input_tensor = Input(shape=(dim_size, dim_size, 3))
 model = ResNet152V2(input_tensor=input_tensor, weights=None, classes=7)
 model.load_weights('resnet_weights.h5', by_name=False)
 
-img_path = 'mela2.jpg'
+img_path = 'test_imgs/mela2.jpg'
 img = image.load_img(img_path, target_size=(dim_size, dim_size))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
