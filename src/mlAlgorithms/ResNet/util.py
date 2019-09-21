@@ -1,5 +1,5 @@
-def decode_predictions(preds, top=3):
-    """Decodes the prediction of an ImageNet model.
+def map_scores(preds, top=3):
+    """Maps the scores/probabilities to the corresponding class/label
 
     # Arguments
         preds: Numpy tensor encoding a batch of predictions.
@@ -9,20 +9,16 @@ def decode_predictions(preds, top=3):
         A list of lists of top class prediction tuples
         `(class_name, class_description, score)`.
         One list of tuples per sample in batch input.
-
-    # Raises
-        ValueError: In case of invalid shape of the `pred` array
-            (must be 2D).
     """
     
     CLASS_INDEX = {
-        '0': 'akiec', 
-        '1': 'bcc', 
-        '2': 'bkl', 
-        '3': 'df', 
-        '4': 'mel', 
-        '5': 'nv', 
-        '6': 'vasc'
+        '0': ['akiec',"Actinic keratoses and intraepithelial carcinoma / Bowen's disease"], 
+        '1': ['bcc',"basal cell carcinoma"], 
+        '2': ['bkl',"benign keratosis-like lesions, solar lentigines / seborrheic keratoses and lichen-planus like keratoses"], 
+        '3': ['df',"dermatofibroma"], 
+        '4': ['mel',"melanoma"], 
+        '5': ['nv',"melanocytic nevi"], 
+        '6': ['vasc',"vascular lesions (angiomas, angiokeratomas, pyogenic granulomas and hemorrhage)"]
     }
 
     if top > 7:

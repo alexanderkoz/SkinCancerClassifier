@@ -2,6 +2,7 @@ from keras.applications.resnet_v2 import ResNet152V2
 from keras.preprocessing import image
 from keras.applications.resnet_v2 import preprocess_input
 from keras.layers import Input
+from util import map_scores
 import numpy as np
 import tensorflow as tf
 
@@ -15,17 +16,14 @@ input_tensor = Input(shape=(dim_size, dim_size, 3))
 model = ResNet152V2(input_tensor=input_tensor, weights=None, classes=7)
 model.load_weights('resnet_weights.h5', by_name=False)
 
-img_path = 'test_imgs/mela2.jpg'
+img_path = 'test_imgs/keratosis2.jpg'
 img = image.load_img(img_path, target_size=(dim_size, dim_size))
 x = image.img_to_array(img)
+x = x / 255.0
 x = np.expand_dims(x, axis=0)
-x = preprocess_input(x)
+#x = preprocess_input(x)
 
 preds = model.predict(x)
 # decode the results into a list of tuples (class, description, probability)
 # (one such list for each sample in the batch)
-print('Predicted:', preds)
-# Predicted: 
-# [(u'n02504013', u'Indian_elephant', 0.82658225), 
-# (u'n01871265', u'tusker', 0.1122357), 
-# (u'n02504458', u'African_elephant', 0.061040461)]
+print('Predicted:', map_scores(preds,3)[0])
