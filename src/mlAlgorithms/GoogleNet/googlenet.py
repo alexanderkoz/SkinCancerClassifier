@@ -48,7 +48,7 @@ def my_generator(generator):
 train_generator = my_generator(generator_main)
 
 
-# create model
+# create UserInterface.model
 def inception(x, filters):
     # 1x1
     path1 = Conv2D(filters=filters[0], kernel_size=(1,1), strides=1, padding='same', activation='relu')(x)
@@ -123,16 +123,16 @@ def googlenet():
     return model
 
 
-# train model
+# train UserInterface.model
 model = googlenet()
 model.summary()
-#model.load_weights(MODEL_NAME)
-#tf.keras.utils.plot_model(model, 'GoogLeNet.png')
+#UserInterface.model.load_weights(MODEL_NAME)
+#tf.keras.utils.plot_model(UserInterface.model, 'GoogLeNet.png')
 
 #optimizer = Adam(lr=2 * 1e-3, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 #optimizer = SGD(lr=1 * 1e-1, momentum=0.9, nesterov=True)
-#model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-#model.compile(loss='categorical_crossentropy', optimizer='Adam', metrics=['accuracy'])
+#UserInterface.model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+#UserInterface.model.compile(loss='categorical_crossentropy', optimizer='Adam', metrics=['accuracy'])
 
 optimizer = ['Adam', 'SGD', 'Adam', 'SGD']
 epochs = [20, 30, 20, 30]
